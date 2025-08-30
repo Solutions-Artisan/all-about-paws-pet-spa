@@ -47,6 +47,14 @@
 }
 
 @layer components {
+  article {
+    ul {
+      list-style: disc;
+      text-align: left;
+    }
+  }
+
+
   .link {
     @apply underline text-blue-600 hover:text-blue-800
   }
