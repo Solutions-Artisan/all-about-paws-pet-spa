@@ -9,10 +9,11 @@ import {
 	GOOGLE_REVIEWS_URL,
 	GOOGLE_WRITE_REVIEW,
 } from "../constants";
+import GoogleProfile from "../components/links/GoogleProfile.astro";
 ---
 
 <Layout title="All About Paws">
-  <h2>All About Paws Pet Spa, LLC.</h2>
+  <h2 class="text-xl lg:text-4xl">All About Paws Pet Spa, LLC.</h2>
   <Slideshow client:only={"preact"} />
   <hr class="hidden md:block" />
   <div
@@ -25,14 +26,19 @@ import {
     <aside
       class="border-gray-200 my-auto flex w-full space-y-2 flex-row items-start justify-between border-b-2 md:h-full md:w-auto md:flex-col md:border-b-0 md:border-l-2 text-blue-800 underline uppercase pl-2 flex-wrap"
     >
+      <div class="flex gap-2 flex-row-reverse md:flex-row md:w-full">
       <a
-        class=""
+        class="flex"
         target="_blank"
         referrerpolicy={"no-referrer"}
         href={GOOGLE_DIRECTION_URL}
       >
         Get Directions
       </a>
+        <div class="ml-auto">
+        <GoogleProfile/>
+        </div>
+      </div>
       <iframe
         class="hidden md:block font-black"
         sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-popups-to-escape-sandbox allow-downloads allow-modals"
@@ -69,20 +75,20 @@ import {
     >
       benefits of regular bathing &#38; Grooming
     </h3>
-    <div class="flex flex-col lg:grid lg:grid-cols-5 gap-4 justify-center">
+    <div id='benefits'>
       <img
-        class="w-auto h-auto my-auto max-h-40 self-center"
+        class="w-auto h-auto my-auto max-h-40 self-center [grid-area:img1]"
         src="/assets/images/sitting_dog.png"
         loading="lazy"
         alt=""
       />
 
-      <article class="col-span-3">
+      <article class="col-span-3 [grid-area:content]">
         <regular.Content />
       </article>
 
       <img
-        class="w-auto h-auto my-auto max-h-40 self-center"
+        class="w-auto h-auto my-auto max-h-40 self-center [grid-area:img2]"
         src="/assets/images/sitting_cat.png"
         loading="lazy"
         alt=""
@@ -90,3 +96,14 @@ import {
     </div>
   </section>
 </Layout>
+
+<style>
+@import "tailwindcss";
+#benefits {
+  @apply grid [grid-template-areas:'img1_img2''content_content'] lg:[grid-template-areas:'img1_content_img2'] gap-4;
+  article {
+    margin-inline: auto;
+    @apply ml-4;
+  }
+}
+</style>

@@ -16,14 +16,12 @@ import * as pricingProcedure from "../pages/sections/packages/pricing_procedure.
     <groomingPackages.Content />
   </section>
 
-  <p class="subheading text-center"></p>
   <img
     src="/assets/images/dog_cat_bath.png"
     loading="lazy"
     alt="Grooming"
     width={"100%"}
   />
-  <p class="font-xl text-center font-bold"></p>
   <div class="flex flex-wrap flex-row h-full outline-subtle">
     <section class="card h-full">
       <h3 class="underline underline-offset-2">
@@ -34,7 +32,7 @@ import * as pricingProcedure from "../pages/sections/packages/pricing_procedure.
       </ul>
     </section>
     <ul
-      class="flex flex-col flex-wrap flex-1 h-full justify-between border-subtle md:border-l-[2px] border-dashed"
+      class="flex flex-col flex-wrap flex-1 h-full justify-between ml-4"
     >
       {
         packages.map((post) => (
@@ -51,8 +49,6 @@ import * as pricingProcedure from "../pages/sections/packages/pricing_procedure.
       }
     </ul>
   </div>
-
-  <div class="flex-wrap flex flex-row justify-between outline-subtle"></div>
 
   <section class="flex flex-col items-center justify-center space-y-4">
     <section

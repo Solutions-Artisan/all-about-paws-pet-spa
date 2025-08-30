@@ -1,37 +1,9 @@
 ---
 import FooterContent from "./FooterContent.astro";
-import GoogleProfile from "./links/GoogleProfile.astro";
-import InstagramProfile from "./links/InstagramProfile.astro";
 ---
 
-<footer class="flex accent justify-center ">
-  <div id='footer-content' class='max-w-6xl flex justify-around w-full items-center gap-x-4 gap-y-2 '>
-
-  <div id="content" class="w-full items-start gap-x-4 flex flex-row flex-wrap ">
-      <FooterContent />
-  </div>
-      <GoogleProfile />
-      <InstagramProfile />
+<footer class="accent">
+  <div class="max-w-6xl flex sm:justify-around flex-wrap gap-x-4 lg:mx-auto place-content-start">
+  <FooterContent />
   </div>
 </footer>
-
-
-
-
-<style>
-
-  #footer-content {
-    display: grid;
-    grid-template-areas: "content google" "content instagram" ;
-    @media (width > 1000px) {
-    grid-template-areas: "instagram content google";
-      
-    }
-  }
-
-  #content {
-    grid-area: content;
-  }
-
-
-</style>
