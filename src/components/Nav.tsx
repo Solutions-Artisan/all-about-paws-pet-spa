@@ -1,6 +1,6 @@
-import { useScroll } from "./nav/use-scroll";
 import { DesktopNav } from "./nav/desktop";
 import { MobileNav } from "./nav/mobile";
+import { useScroll } from "./nav/use-scroll";
 
 export const Nav = ({ route }: { route: string }) => {
 	useScroll();

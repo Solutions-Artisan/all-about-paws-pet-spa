@@ -2,7 +2,9 @@ import React from "preact/compat";
 
 export const NavLinks = ({
 	selected,
-}: { selected: "home" | "packages" | "faq" }) => {
+}: {
+	selected: "home" | "packages" | "faq";
+}) => {
 	const selectClass =
 		"text-white lg:bg-gray-900 border-r-accent-900 hover:bg-gray-900 ";
 

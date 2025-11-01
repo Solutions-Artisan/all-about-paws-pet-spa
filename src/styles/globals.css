@@ -3,107 +3,100 @@
 @import "tailwindcss/preflight.css" layer(base);
 @import "tailwindcss/utilities.css" layer(utilities);
 
-
 @layer base {
-  @font-face {
-    font-family: "Oswald";
-    src: url("/assets/fonts/oswald/Oswald-Regular.ttf");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
+	@font-face {
+		font-family: "Oswald";
+		src: url("/assets/fonts/oswald/Oswald-Regular.ttf");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
 
-  @font-face {
-    font-family: "Oswald-Light";
-    src: url("/assets/fonts/oswald/Oswald-Light.ttf");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
+	@font-face {
+		font-family: "Oswald-Light";
+		src: url("/assets/fonts/oswald/Oswald-Light.ttf");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
 
-  @font-face {
-    font-family: "Noto Sans Regular";
-    src: url("/assets/fonts/NotoSans/NotoSansDisplay-Regular.ttf");
-  }
+	@font-face {
+		font-family: "Noto Sans Regular";
+		src: url("/assets/fonts/NotoSans/NotoSansDisplay-Regular.ttf");
+	}
 
-  @font-face {
-    font-family: "Noto Sans Condensed";
-    src: url("/assets/fonts/NotoSans/NotoSansDisplay_Condensed-Light.ttf");
-  }
+	@font-face {
+		font-family: "Noto Sans Condensed";
+		src: url("/assets/fonts/NotoSans/NotoSansDisplay_Condensed-Light.ttf");
+	}
 }
 
 @theme {
-  --font-display: "Oswald-Light", "sans-serif";
-  --font-heading: "Oswald", "sans-serif";
-  --accent: 124, 58, 237;
-  --accent-gradient: linear-gradient(45deg,
-      rgb(var(--accent)),
-      #da62c4 30%,
-      white 60%);
-  --large-font: clamp(1.4rem, 2.5vw, 1.8rem);
-  --normal-font: clamp(1.2rem, 2.5vw, 1.4rem);
-  --small-font: clamp(1rem, 2.5vw, 1.2rem);
-  --accent-bg: 250, 208, 197;
+	--font-display: "Oswald-Light", "sans-serif";
+	--font-heading: "Oswald", "sans-serif";
+	--accent: 124, 58, 237;
+	--accent-gradient: linear-gradient(
+		45deg,
+		rgb(var(--accent)),
+		#da62c4 30%,
+		white 60%
+	);
+	--large-font: clamp(1.4rem, 2.5vw, 1.8rem);
+	--normal-font: clamp(1.2rem, 2.5vw, 1.4rem);
+	--small-font: clamp(1rem, 2.5vw, 1.2rem);
+	--accent-bg: 250, 208, 197;
 }
 
 @layer components {
-  article {
-    ul {
-      list-style: disc;
-      text-align: left;
-    }
-  }
+	article {
+		ul {
+			list-style: disc;
+			text-align: left;
+		}
+	}
 
+	.link {
+		@apply underline text-blue-600 hover:text-blue-800 } #main { background: white;
+		margin: 2rem;
+		padding: 2rem;
 
-  .link {
-    @apply underline text-blue-600 hover:text-blue-800
-  }
+		h2 {
+			@apply font-heading;
+			font-size: 2rem;
+			text-transform: uppercase;
+			text-align: center;
+		}
+	}
 
-  #main {
-    background: white;
-    margin: 2rem;
-    padding: 2rem;
+	.h3 {
+		font-family: "Oswald-Light", sans-serif;
+		text-transform: uppercase;
+	}
 
-    h2 {
-      @apply font-heading;
-      font-size: 2rem;
-      text-transform: uppercase;
-      text-align: center;
+	.accent {
+		background: rgba(var(--accent-bg), 60%);
+		padding-inline: 2rem;
+		padding-block: 1rem;
+		margin: 0;
+	}
 
-    }
-  }
+	.text-accent {
+		color: rgb(var(--accent));
+	}
 
-  .h3 {
-    font-family: "Oswald-Light", sans-serif;
-    text-transform: uppercase;
-  }
-
-  .accent {
-    background: rgba(var(--accent-bg), 60%);
-    padding-inline: 2rem;
-    padding-block: 1rem;
-    margin: 0;
-  }
-
-  .text-accent {
-    color: rgb(var(--accent));
-  }
-
-  .frame {
-    border: 1px solid #1a1a1a;
-    border-radius: 0.5rem;
-    padding: 1rem;
-  }
-
+	.frame {
+		border: 1px solid #1a1a1a;
+		border-radius: 0.5rem;
+		padding: 1rem;
+	}
 }
 
 @layer base {
-  html {
-    font-size: 16px;
-  }
+	html {
+		font-size: 16px;
+	}
 
-  aside {
-    font-family: "Noto Sans Condensed", sans-serif;
-  }
-
+	aside {
+		font-family: "Noto Sans Condensed", sans-serif;
+	}
 }
