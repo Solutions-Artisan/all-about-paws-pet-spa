@@ -1,15 +1,14 @@
 ---
-import * as indexSection from "../pages/sections/index.md";
-import * as regular from "../pages/sections/regular-bathing-grooming-benefits.md";
-
+import GoogleProfile from "../components/links/GoogleProfile.astro";
 import Slideshow from "../components/Slides";
-import Layout from "../layouts/Layout.astro";
 import {
 	GOOGLE_DIRECTION_URL,
 	GOOGLE_REVIEWS_URL,
 	GOOGLE_WRITE_REVIEW,
 } from "../constants";
-import GoogleProfile from "../components/links/GoogleProfile.astro";
+import Layout from "../layouts/Layout.astro";
+import * as indexSection from "../pages/sections/index.md";
+import * as regular from "../pages/sections/regular-bathing-grooming-benefits.md";
 ---
 
 <Layout title="All About Paws">
@@ -24,46 +23,41 @@ import GoogleProfile from "../components/links/GoogleProfile.astro";
     </article>
 
     <aside
-      class="border-gray-200 my-auto flex w-full space-y-2 flex-row items-start justify-between border-b-2 md:h-full md:w-auto md:flex-col md:border-b-0 md:border-l-2 text-blue-800 underline uppercase pl-2 flex-wrap"
+      class="border-gray-200 my-auto flex md:grid md:grid-cols-2 md:grid-rows-[auto_1fr_auto] space-y-2 items-start justify-between border-b-2  md:border-b-0 md:border-l-2 text-blue-800 underline uppercase pl-2 flex-wrap min-w-fit"
     >
-      <div class="flex gap-2 flex-row-reverse md:flex-row md:w-full">
       <a
-        class="flex"
+        class="flex w-max"
         target="_blank"
         referrerpolicy={"no-referrer"}
         href={GOOGLE_DIRECTION_URL}
       >
         Get Directions
       </a>
-        <div class="ml-auto">
+      <div class="ml-auto hidden md:inline-block">
         <GoogleProfile/>
-        </div>
       </div>
       <iframe
-        class="hidden md:block font-black"
-        sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-popups-to-escape-sandbox allow-downloads allow-modals"
+        class="font-black col-span-full h-full w-full relative hidden md:inline-block"
+        sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-popups-to-escape-sandbox allow-downloads allow-modals w-fit"
         aria-label="Map, 16329 Co Rd V"
         src="https://maps-api-ssl.google.com/maps?hl=en&ll=40.305269,-103.844805&output=embed&q=16329+Co+Rd+V,+Fort+Morgan,+CO+80701,+USA+(16329+Co+Rd+V)&z=16"
         allowfullscreen=""></iframe>
-      <div class="md:flex flex-col gap-x-2 w-full contents">
-        <div class="md:flex flex-1 contents">
           <a
-            class="md:flex-1"
             target="_blank"
+            class="flex-1 text-center md:text-left"
             referrerpolicy={"no-referrer"}
             href={GOOGLE_REVIEWS_URL}
           >
             Reviews
           </a>
           <a
+        class="ml-auto"
             target="_blank"
             referrerpolicy={"no-referrer"}
             href={GOOGLE_WRITE_REVIEW}
           >
             Write a Review
           </a>
-        </div>
-      </div>
     </aside>
   </div>
 

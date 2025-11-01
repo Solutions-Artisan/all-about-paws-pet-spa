@@ -3,7 +3,7 @@ title: 'All About Paws'
 author: 'Debi'
 ---
 
-All About Paws Pet Spa LLC. is a locally owned business providing full-service
+All About Paws Pet Spa, LLC. is a locally owned business providing full-service
 dog grooming.
 My core belief is that every animal is unique and requires customized treatment.
 While many pets come in with tails wagging in happy anticipation of being groomed,

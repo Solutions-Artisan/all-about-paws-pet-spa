@@ -1,5 +1,4 @@
-export const GOOGLE_PAGE =
-	"http://www.google.com/url?q=http%3A%2F%2Fbit.ly%2FAAPGoogle&sa=D&sntz=1&usg=AOvVaw1mpVb3muKjeLZBsa4xoWI2";
+export const GOOGLE_PAGE = "https://share.google/47mt4FfUf5B4yJBNC";
 export const CONTACT_EMAIL = "flutterbydragonfly@protonmail.com";
 export const CONTACT_EMAIL_SPACED = "flutterbydragonfly at protonmail dot com";
 export const INSTAGRAM = "https://www.instagram.com/fortpaws/";
