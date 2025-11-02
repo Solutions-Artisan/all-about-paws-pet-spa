@@ -1,71 +1,12 @@
 <!-- wrapper for hero to ensure that it is centered with a dark background -->
-<div class="hero-wrap">
-    <div class="hero-image">
-        <img src="/assets/images/header.png" alt="header">
-    </div>
+<div
+    class="flex min-w-screen items-center h-fit md:h-[25rem] lg:h-[30rem] -mt-8 md:-mt-12 relative"
+>
+    <img
+        src="/assets/images/header.png"
+        alt="header"
+        width="auto"
+        height="20rem"
+        class="w-auto mx-auto h-full"
+    />
 </div>
-
-
-<style>
-    /* The hero image */
-
-    img {
-        margin-top: 2rem;
-        width: "100%";
-        padding: 0.5rem;
-    } 
-
-    .hero-wrap {
-      margin-top: -6rem;
-        display: flex;
-        min-width: 100dvw;
-        align-items: center;
-        justify-content: center;
-        background-color: white;
-        /* max-height: 30dvh; */
-        overflow: hidden;
-    }
-
-    .hero-image {
-        justify-content: center;
-        align-items: center;
-        vertical-align: center;
-        max-width: 2136px !important;
-
-        /* Position and center the image to scale nicely on all screens */
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-    }
-
-    /* Place text in the middle of the image */
-    .hero-text {
-        text-align: center;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-    }
-
-    /* For large screens, make the image width 50% */
-    @media (min-width: 600px) {
-        img {
-            width: auto;
-            margin-inline: auto;
-            height: 40dvh;
-        }
-        
-    }
-    @media (min-width: 2000px) {
-        img {
-            width: auto;
-            margin-inline: auto;
-            height: 27dvh;
-        }
-        
-    }
-
-
-</style>

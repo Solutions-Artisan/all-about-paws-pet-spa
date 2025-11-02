@@ -9,78 +9,73 @@ import * as pricingProcedure from "../pages/sections/packages/pricing_procedure.
 ---
 
 <Layout title="Packages">
-  <h2>
-    {groomingPackages.frontmatter.title}
-  </h2>
-  <section>
-    <groomingPackages.Content />
-  </section>
-
-  <img
-    src="/assets/images/dog_cat_bath.png"
-    loading="lazy"
-    alt="Grooming"
-    width={"100%"}
-  />
-  <div class="flex flex-wrap flex-row h-full outline-subtle">
-    <section class="card h-full">
-      <h3 class="underline underline-offset-2">
-        {basePackageInfo.frontmatter.title}
-      </h3>
-      <ul class="break-words">
-        <basePackageInfo.Content />
-      </ul>
+    <h2>
+        {groomingPackages.frontmatter.title}
+    </h2>
+    <section>
+        <groomingPackages.Content />
     </section>
-    <ul
-      class="flex flex-col flex-wrap flex-1 h-full justify-between ml-4"
-    >
-      {
-        packages.map((post) => (
-          <li class="card">
-            <h3 class="underline underline-offset-2 min-w-max">
-              {post.frontmatter.title}: {post.frontmatter.alt}
+
+    <img
+        src="/assets/images/dog_cat_bath.png"
+        loading="lazy"
+        alt="Grooming"
+        width={"100%"}
+    />
+    <section class="h-full flex flex-wrap gap-4">
+        <div>
+            <h3 class="underline underline-offset-2">
+                {basePackageInfo.frontmatter.title}
             </h3>
-            <span>{post.frontmatter.description}</span>
-            <ul class="break-words min-w-40">
-              <post.Content />
+            <ul class="break-words">
+                <basePackageInfo.Content />
             </ul>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-
-  <section class="flex flex-col items-center justify-center space-y-4">
-    <section
-      class="accent flex space-x-3 text-left flex-col space-y-4"
-      id="grooming-packages-pricing-content"
-    >
-      <h3 class="col-span-2 underline underline-offset-2">
-        {pricingProcedure.frontmatter.title}
-      </h3>
-      <div class="flex flex-wrap justify-center content-between">
-        <div
-          class="flex-1 flex-row flex-wrap mr-10 space-y-2 min-w-20 sm:min-w-48"
-        >
-          <span class="">
-            {pricingProcedure.frontmatter.description}
-          </span>
-          <pricingProcedure.Content />
         </div>
-        <img
-          src="/assets/images/dog_in_towel.jpg"
-          loading="lazy"
-          alt="Pomeranian"
-          width={400}
-          class="object-contain self-center"
-        />
-      </div>
+        <ul class="flex flex-col flex-wrap flex-1 justify-between gap-2">
+            {
+                packages.map((post) => (
+                    <li class="card">
+                        <h3 class="underline underline-offset-2 min-w-max">
+                            {post.frontmatter.title}: {post.frontmatter.alt}
+                        </h3>
+                        <span>{post.frontmatter.description}</span>
+                        <ul class="break-words">
+                            <post.Content />
+                        </ul>
+                    </li>
+                ))
+            }
+        </ul>
     </section>
-  </section>
+
+    <section class="flex flex-col items-center justify-center space-y-4">
+        <section class="accent flex space-x-3 text-left flex-col space-y-4">
+            <h3 class="col-span-2 underline underline-offset-2">
+                {pricingProcedure.frontmatter.title}
+            </h3>
+            <div class="flex flex-wrap justify-center content-between">
+                <div
+                    class="flex-1 flex-row flex-wrap mr-10 space-y-2 min-w-20 sm:min-w-48"
+                >
+                    <span class="">
+                        {pricingProcedure.frontmatter.description}
+                    </span>
+                    <pricingProcedure.Content />
+                </div>
+                <img
+                    src="/assets/images/dog_in_towel.jpg"
+                    loading="lazy"
+                    alt="Pomeranian"
+                    width={400}
+                    class="object-contain self-center"
+                />
+            </div>
+        </section>
+    </section>
 </Layout>
 
 <style>
-  .subheading {
-    font-size: var(--small-font);
-  }
+    .subheading {
+        font-size: var(--small-font);
+    }
 </style>
