@@ -1,23 +1,28 @@
 ---
-const { title } = Astro.props;
+export interface Props {
+	title: string;
+	noindex: boolean;
+}
+const { title, noindex } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" class="flex bg-[#efece9] text-[#1a1a1a] font-body">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap"
-      rel="stylesheet"
-    />
-    <title>{title || "All About Paws Pet Spa"}</title>
-  </head>
-  <body>
-    <slot />
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap"
+            rel="stylesheet"
+        />
+        <title>{title || "All About Paws Pet Spa"}</title>
+        {noindex && <meta name="robots" content="noindex" />}
+    </head>
+    <body>
+        <slot />
+    </body>
 </html>
