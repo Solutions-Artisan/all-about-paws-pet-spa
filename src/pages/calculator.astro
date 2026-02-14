@@ -10,6 +10,7 @@ import Layout from "../layouts/Layout.astro";
             const output = this.querySelector("#output");
             const addWeekButton = this.querySelector("#add-week");
             const subtractWeekButton = this.querySelector("#subtract-week");
+            const occurrenceCountInput = this.querySelector("#occurrences") 
 
             const date = new Date();
             const handleChange = () => {
@@ -25,15 +26,16 @@ import Layout from "../layouts/Layout.astro";
                 const weekInterval = parseInt(weekIntervalInput?.value ?? 6);
 
                 output.innerHTML = "";
+              const toGenerate = occurrenceCountInput instanceof HTMLInputElement ? Number(occurrenceCountInput.value) : 6
 
-                for (let i = 0; i < 6; i++) {
+                for (let i = 0; i < toGenerate; i++) {
                     const newDate = new Date(
                         date.getTime() +
                             i * (7 * weekInterval) * 24 * 60 * 60 * 1000,
                     );
                     const newChild = document.createElement("li");
                     newChild.textContent = newDate.toDateString();
-                    newChild.style = "margin-left: 1.4rem;";
+                    newChild.style = "margin-left: 2rem;";
                     output.appendChild(newChild);
                 }
             };
@@ -60,48 +62,39 @@ import Layout from "../layouts/Layout.astro";
                 weekIntervalInput instanceof HTMLInputElement &&
                 output instanceof HTMLUListElement
             ) {
-                const formatter = new Intl.DateTimeFormat("en-CA", {
-                    year: "numeric",
-                    month: "2-digit",
-                    day: "2-digit",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    hour12: false,
-                    timeZoneName: "short",
-                });
 
-                // This gives "2026-02-12, 22:00" - need to remove comma and space
-                const parts = formatter.formatToParts(date);
-                const year = parts.find((p) => p.type === "year")?.value;
-                const month = parts.find((p) => p.type === "month")?.value;
-                const day = parts.find((p) => p.type === "day")?.value;
-                const hour = parts.find((p) => p.type === "hour")?.value;
-                const minute = parts.find((p) => p.type === "minute")?.value;
-
-                const dateTimeString = `${year}-${month}-${day}T${hour}:${minute}`;
-                dateTime.value = dateTimeString;
-                dateTime.addEventListener("change", handleChange);
-                weekIntervalInput.addEventListener("change", handleChange);
+                dateTime.value = new Date().toISOString().split("T")[0];
             }
+              for (const input of [dateTime, weekIntervalInput, occurrenceCountInput]) {
+                input?.addEventListener("change", handleChange);
+              }
             handleChange();
         }
     }
     customElements.define("astro-calculator", AstroCalculator);
 </script>
 
-<Layout title="FAQ - Frequently Asked Questions" noindex>
-    <astro-calculator class="flex flex-wrap gap-4 items-center">
+<Layout title="Interval Calculator" noindex>
+    <astro-calculator class="flex flex-wrap gap-4 items-center ">
         <div class="grid gap-4 justify-start h-fit flex-1">
-            <div class="input">
+          <div class="flex gap-2 flex-wrap">
+            <div class="input flex-1">
                 <label for="datetime">Start date</label>
-                <input type="datetime-local" id="datetime" class="w-full" />
+                <input type="date" id="datetime" class="w-full" />
             </div>
+            <div class="input">
+                <label for="occurrences">Occurrences</label>
+                <input type="number" id="occurrences" class="w-[12ch]" value="6" />
+
+              </div>
+          </div>
+
             <div class="grid md:grid-cols-2 gap-4">
                 <div class="input">
                     <label for="interval-weeks" class="col-span-full"
                         >Interval (weeks)</label
                     >
-                    <div class="flex gap-2 ml-auto md:ml-0 w-fit">
+                    <div class="flex gap-2 ml-auto md:ml-0 w-fit sm:flex-wrap">
                         <input
                             type="number"
                             id="interval-weeks"
@@ -116,13 +109,16 @@ import Layout from "../layouts/Layout.astro";
                 </div>
             </div>
         </div>
-        <section class="flex-1">
+        <section class="flex-1  overflow-auto  min-w-fit" style="max-height: 80dvh">
             <h2 class="text-left">Result</h2>
+            <div class="outline outline-offset-2 mx-2 ">
+
             <ul
                 id="output"
-                class="list-decimal text-xl outline -outline-offset-2 p-2 md:px-4 space-y-4"
+                class="list-decimal text-xl p-2 md:px-4 space-y-4 min-w-fit"
             >
             </ul>
+              </div>
         </section>
     </astro-calculator>
 </Layout>
