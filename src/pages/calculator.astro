@@ -1,0 +1,168 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<script>
+    class AstroCalculator extends HTMLElement {
+        connectedCallback() {
+            const dateTime = this.querySelector("#datetime");
+            const weekIntervalInput = this.querySelector("#interval-weeks");
+            const output = this.querySelector("#output");
+            const addWeekButton = this.querySelector("#add-week");
+            const subtractWeekButton = this.querySelector("#subtract-week");
+            const occurrenceCountInput = this.querySelector("#occurrences") 
+
+            const date = new Date();
+            const handleChange = () => {
+                if (
+                    !(dateTime instanceof HTMLInputElement) ||
+                    !(weekIntervalInput instanceof HTMLInputElement) ||
+                    !(output instanceof HTMLUListElement)
+                ) {
+                    return;
+                }
+                const date = dateTime.valueAsDate;
+                if (!date) return;
+                const weekInterval = parseInt(weekIntervalInput?.value ?? 6);
+
+                output.innerHTML = "";
+              const toGenerate = occurrenceCountInput instanceof HTMLInputElement ? Number(occurrenceCountInput.value) : 6
+
+                for (let i = 0; i < toGenerate; i++) {
+                    const newDate = new Date(
+                        date.getTime() +
+                            i * (7 * weekInterval) * 24 * 60 * 60 * 1000,
+                    );
+                    const newChild = document.createElement("li");
+                    newChild.textContent = newDate.toDateString();
+                    newChild.style = "margin-left: 2rem;";
+                    output.appendChild(newChild);
+                }
+            };
+
+            const updateByOne = (type: "add" | "subtract") => {
+                if (!(weekIntervalInput instanceof HTMLInputElement)) return;
+                const current = parseInt(weekIntervalInput.value);
+                if (type === "add") {
+                    weekIntervalInput.value = (current + 1).toString();
+                } else {
+                    weekIntervalInput.value = (current - 1).toString();
+                }
+
+                handleChange();
+            };
+
+            addWeekButton?.addEventListener("click", () => updateByOne("add"));
+            subtractWeekButton?.addEventListener("click", () =>
+                updateByOne("subtract"),
+            );
+
+            if (
+                dateTime instanceof HTMLInputElement &&
+                weekIntervalInput instanceof HTMLInputElement &&
+                output instanceof HTMLUListElement
+            ) {
+
+                dateTime.value = new Date().toISOString().split("T")[0];
+            }
+              for (const input of [dateTime, weekIntervalInput, occurrenceCountInput]) {
+                input?.addEventListener("change", handleChange);
+              }
+            handleChange();
+        }
+    }
+    customElements.define("astro-calculator", AstroCalculator);
+</script>
+
+<Layout title="Interval Calculator" noindex>
+    <astro-calculator class="flex flex-wrap gap-4 items-center ">
+        <div class="grid gap-4 justify-start h-fit flex-1">
+          <div class="flex gap-2 flex-wrap">
+            <div class="input flex-1">
+                <label for="datetime">Start date</label>
+                <input type="date" id="datetime" class="w-full" />
+            </div>
+            <div class="input">
+                <label for="occurrences">Occurrences</label>
+                <input type="number" id="occurrences" class="w-[12ch]" value="6" />
+
+              </div>
+          </div>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="input">
+                    <label for="interval-weeks" class="col-span-full"
+                        >Interval (weeks)</label
+                    >
+                    <div class="flex gap-2 ml-auto md:ml-0 w-fit sm:flex-wrap">
+                        <input
+                            type="number"
+                            id="interval-weeks"
+                            value="6"
+                            class="flex-1"
+                        />
+                        <button id="add-week" class="text-[2rem] rounded-lg"
+                            >+</button
+                        >
+                        <button id="subtract-week">-</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="flex-1  overflow-auto  min-w-fit" style="max-height: 80dvh">
+            <h2 class="text-left">Result</h2>
+            <div class="outline outline-offset-2 mx-2 ">
+
+            <ul
+                id="output"
+                class="list-decimal text-xl p-2 md:px-4 space-y-4 min-w-fit"
+            >
+            </ul>
+              </div>
+        </section>
+    </astro-calculator>
+</Layout>
+
+<style>
+    .input {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        position: static;
+        height: fit-content;
+    }
+    .input label {
+        font-size: larger;
+        font-weight: 700;
+        color: hsl(234.45, 89.47%, 73.92%);
+        position: relative;
+        margin: 0 0 0 7px;
+        padding: 0 3px;
+        width: fit-content;
+    }
+    .input input {
+        padding: 0.5rem 0.6rem;
+        border-radius: 0.5rem;
+        outline: 2px solid black;
+        background-color: hsl(0, 0%, 99.98%);
+        font-size: larger;
+    }
+
+    #add-week,
+    #subtract-week {
+        font-size: 2rem;
+        padding: 2px 1rem;
+        border-radius: 2rem;
+        background-color: hsl(234.45, 89.47%, 95.92%);
+        outline: 2px solid black;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+        &:hover {
+            background-color: hsl(234.45, 89.47%, 90%);
+        }
+    }
+
+    #output {
+        border-radius: 0.5rem;
+    }
+</style>
