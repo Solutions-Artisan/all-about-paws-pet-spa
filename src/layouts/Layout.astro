@@ -1,5 +1,4 @@
 ---
-import Attribution from "../components/Attribution.astro";
 import "../styles/globals.css";
 export interface Props {
 	title: string;
@@ -25,7 +24,7 @@ import Root from "./Root.astro";
         <main class="flex justify-center 2xl:text-xl w-screen mx-2 lg:mx-0">
             <div
                 id="main"
-                class="max-w-6xl flex flex-col gap-4 overflow-x-clip flex-1"
+                class="container flex flex-col gap-4 overflow-x-clip flex-1"
             >
                 <slot />
             </div>
@@ -33,5 +32,4 @@ import Root from "./Root.astro";
 
         <Footer />
     </div>
-    <Attribution />
 </Root>
