@@ -17,7 +17,7 @@ export const DesktopNav = ({ route }: { route: string }) => {
 						href={v}
 						key={k}
 						className={clsx(
-							"flex-1 min-w-25 w-full lg:w-max text-right lg:text-center py-4 lg:py-0 px-4 lg:pb-1 lg:border-b-2 ",
+							"flex-1 min-w-max w-full lg:w-max text-right lg:text-center py-4 lg:py-0 px-4 lg:pb-1 lg:border-b-2 ",
 							isSelected
 								? "bg-gray-900 text-white border-b-transparent"
 								: "border-b-black hover:bg-gray-900/25 ",

@@ -56,16 +56,19 @@
 	}
 
 	.link {
-		@apply underline text-blue-600 hover:text-blue-800 } #main { background: white;
+		@apply underline text-blue-600 hover:text-blue-800;
+	}
+	#main {
+		background: white;
 		margin: 2rem;
 		padding: 2rem;
+	}
 
-		h2 {
-			@apply font-heading;
-			font-size: 2rem;
-			text-transform: uppercase;
-			text-align: center;
-		}
+	h2 {
+		@apply font-heading;
+		font-size: 2rem;
+		text-transform: uppercase;
+		text-align: center;
 	}
 
 	.h3 {

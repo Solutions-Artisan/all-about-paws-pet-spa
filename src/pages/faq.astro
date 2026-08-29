@@ -1,76 +1,80 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 
-const faq = await Astro.glob("../pages/sections/faq/*.md*");
+const faq = await getCollection("faq");
+console.log(faq);
 ---
 
 <script>
-  const { hash: tag } = window.location;
-  const el = tag ? document.getElementById(tag.slice(1)) : undefined;
-  el?.scrollIntoView({
-    behavior: "auto",
-    block: "center",
-    inline: "center",
-  });
+    const { hash: tag } = window.location;
+    const el = tag ? document.getElementById(tag.slice(1)) : undefined;
+    el?.scrollIntoView({
+        behavior: "auto",
+        block: "center",
+        inline: "center",
+    });
 
-  el?.classList.add("text-accent");
+    el?.classList.add("text-accent");
 </script>
 
 <Layout title="FAQ - Frequently Asked Questions">
-  <h2>Frequently Asked Questions</h2>
-  <img
-    src="/assets/images/sitting_dog_3.png"
-    loading="lazy"
-    alt=""
-    width={"100%"}
-    class="max-h-60 w-auto mx-auto self-center"
-  />
-  <!-- Mapping the following q and a to the comment above -->
-  <ul class="flex flex-col gap-4 font-serif text-lg">
-    {
-      faq.map((post) => (
-        <li class="flex flex-col gap-2">
-          <a href={post.url}>
-            <h3 class="flex gap-2" id={post.url.split("/").slice(-1)[0]}>
-              <span class="text-xl font-extrabold">Q:</span>
-              <span>{post.frontmatter.title}</span>
-            </h3>
-          </a>
-          <div class="flex gap-2">
-            <span class="font-extrabold">A:</span>
-            <div>
-              <post.Content />
-            </div>
-          </div>
-          <hr class="border-b-[1px] border-dashed border-gray-200/75" />
-        </li>
-      ))
-    }
-  </ul>
-  <div class="flex flex-col md:flex-row items-center">
+    <h2>Frequently Asked Questions</h2>
     <img
-      src="/assets/images/sitting_dog_2.jpg"
-      loading="lazy"
-      alt=""
-      width={"100%"}
-      style={{ margin: "10px" }}
+        src="/assets/images/sitting_dog_3.png"
+        loading="lazy"
+        alt=""
+        width={"100%"}
+        class="max-h-60 w-auto mx-auto self-center"
     />
-    <img
-      src="/assets/images/pomeranian.jpg"
-      loading="lazy"
-      alt=""
-      width={"100%"}
-    />
-  </div>
+    <!-- Mapping the following q and a to the comment above -->
+    <ul class="flex flex-col gap-4 font-serif text-lg">
+        {
+            faq.map((post) => (
+                <li class="flex flex-col gap-2">
+                    <a href={`/sections/faq/${post.id}`}>
+                        <h3 class="flex gap-2" id={post.id}>
+                            <span class="text-xl font-extrabold">Q:</span>
+                            <span>{post.data.title}</span>
+                        </h3>
+                    </a>
+                    <div class="flex gap-2">
+                        <span class="font-extrabold">A:</span>
+                        <div>{post.body}</div>
+                    </div>
+                    <hr class="border-b border-dashed border-gray-200/75" />
+                </li>
+            ))
+        }
+    </ul>
+    <div class="flex flex-col md:flex-row items-center">
+        <img
+            src="/assets/images/sitting_dog_2.jpg"
+            loading="lazy"
+            alt=""
+            width={"100%"}
+            style={{ margin: "10px" }}
+        />
+        <img
+            src="/assets/images/pomeranian.jpg"
+            loading="lazy"
+            alt=""
+            width={"100%"}
+        />
+    </div>
+</Layout>
 
-  <style>
+<style>
     .faq-wrap > div {
-      padding-top: 2rem;
+        padding-top: 2rem;
     }
     .answer {
-      margin-top: 0.4rem;
-      margin-bottom: 2rem;
-      height: max-content;
+        margin-top: 0.4rem;
+        margin-bottom: 2rem;
+        height: max-content;
     }
-  </style>
-</Layout>
+    img {
+        max-height: 20rem;
+        object-fit: contain;
+    }
+</style>

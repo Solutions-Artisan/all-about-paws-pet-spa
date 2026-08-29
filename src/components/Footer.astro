@@ -1,9 +1,15 @@
 ---
 import FooterContent from "./FooterContent.astro";
+import Attribution from "./Attribution.astro";
 ---
 
 <footer class="accent">
-  <div class="max-w-6xl flex sm:justify-around flex-wrap gap-x-4 lg:mx-auto place-content-start">
+  <div class="mx-auto container grid md:grid-cols-3">
+
   <FooterContent />
+  </div>
+  <div class="ml-auto w-fit">
+
+  <Attribution />
   </div>
 </footer>

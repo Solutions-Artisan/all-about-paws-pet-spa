@@ -7,9 +7,9 @@ import {
 } from "../constants";
 ---
 
-<section class="flex-wrap items-start min-w-max">
+<section class="flex-wrap min-w-max">
   <h3 class="font-bold text-lg underline">Hours</h3>
-  <div class="grid grid-cols-1 sm:grid-cols-[auto_1fr] md:gap-y-2 gap-x-2">
+  <div class="grid grid-cols-[auto_1fr] md:gap-y-2 gap-x-2">
     <span class="font-bold">M - F</span>
     <span>7:00am - 4:00pm</span>
     <span class="font-bold">Saturday</span>
@@ -18,16 +18,13 @@ import {
     <span>Closed</span>
   </div>
 </section>
-<section class="flex-wrap min-w-max ">
+<section class="flex-wrap min-w-fit md:mx-auto">
   <h3 class="font-bold text-lg underline">Location</h3>
-      <span class="w-max">
-        <span>16329 County Road V,</span>
-         <br/>
-    <span>Fort Morgan<span class="hidden md:inline-block">, CO 80701</span>
-
+  <span class="w-max">
+    <span>16329 County Road V, Fort Morgan<span class="hidden md:inline-block">, CO 80701</span>
     </span>
-      </span>
-<br/> 
+    </span>
+    <br/>
     <a
       class="min-w-max underline link"
       href={GOOGLE_DIRECTION_URL}
@@ -37,7 +34,8 @@ import {
     >
       Get Directions
     </a>
-<section class="flex-wrap">
+</section>
+<section class="flex-wrap min-w-fit md:ml-auto">
   <h3 class="font-bold text-lg underline">Contact</h3>
   <a
     href=`tel:+${PHONE_FULL}`
