@@ -1,0 +1,16 @@
+---
+const { id } = Astro.props;
+import { getEntry, render } from "astro:content";
+
+const entry = await getEntry("packages", id);
+
+if (!entry) {
+	throw new Error("Entry not found");
+}
+
+const { Content } = await render(entry);
+
+console.log(id, entry.rendered?.html);
+---
+
+<div set:html={entry.rendered?.html} />

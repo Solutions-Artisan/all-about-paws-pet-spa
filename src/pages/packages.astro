@@ -1,7 +1,12 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 
-const packages = await Astro.glob("../pages/sections/packages/package*.md");
+const packages = await getCollection("packages").then((p) =>
+	p.filter((p) => {
+		return p.id.startsWith("package");
+	}),
+);
 
 import * as basePackageInfo from "../pages/sections/all-packages.md";
 import * as groomingPackages from "../pages/sections/packages/grooming_packages.md";
@@ -27,7 +32,7 @@ import * as pricingProcedure from "../pages/sections/packages/pricing_procedure.
             <h3 class="underline underline-offset-2">
                 {basePackageInfo.frontmatter.title}
             </h3>
-            <ul class="break-words">
+            <ul class="wrap-break-word">
                 <basePackageInfo.Content />
             </ul>
         </div>
@@ -36,12 +41,16 @@ import * as pricingProcedure from "../pages/sections/packages/pricing_procedure.
                 packages.map((post) => (
                     <li class="card">
                         <h3 class="underline underline-offset-2 min-w-max">
-                            {post.frontmatter.title}: {post.frontmatter.alt}
+                            {post.data.title}: {post.data.alt}
                         </h3>
-                        <span>{post.frontmatter.description}</span>
-                        <ul class="break-words">
-                            <post.Content />
-                        </ul>
+                        <span>{post.data.description}</span>
+                        {Array.isArray(post.data.features) && (
+                            <ul class="wrap-break-word">
+                                {post.data.features.map((f) => (
+                                    <li>{f}</li>
+                                ))}
+                            </ul>
+                        )}
                     </li>
                 ))
             }
