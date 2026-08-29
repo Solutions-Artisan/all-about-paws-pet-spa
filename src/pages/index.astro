@@ -1,10 +1,10 @@
 ---
 import GoogleProfile from "../components/links/GoogleProfile.astro";
-import Slideshow from "../components/Slides";
+import Slideshow from "../components/Slides.astro";
 import {
-	GOOGLE_DIRECTION_URL,
-	GOOGLE_REVIEWS_URL,
-	GOOGLE_WRITE_REVIEW,
+    GOOGLE_DIRECTION_URL,
+    GOOGLE_REVIEWS_URL,
+    GOOGLE_WRITE_REVIEW,
 } from "../constants";
 import Layout from "../layouts/Layout.astro";
 import * as indexSection from "../pages/sections/index.md";
@@ -12,92 +12,92 @@ import * as regular from "../pages/sections/regular-bathing-grooming-benefits.md
 ---
 
 <Layout title="All About Paws">
-  <h2 class="text-xl lg:text-4xl">All About Paws Pet Spa, LLC.</h2>
-  <Slideshow client:only={"preact"} />
-  <hr class="hidden md:block" />
-  <div
-    class="flex flex-col-reverse md:flex-row md:justify-center gap-x-8 gap-y-4"
-  >
-    <article class="">
-      <indexSection.Content />
-    </article>
-
-    <aside
-      class="border-gray-200 my-auto flex md:grid md:grid-cols-2 md:grid-rows-[auto_1fr_auto] space-y-2 items-start justify-between border-b-2  md:border-b-0 md:border-l-2 text-blue-800 underline uppercase pl-2 flex-wrap min-w-fit"
+    <h2 class="text-xl lg:text-4xl">All About Paws Pet Spa, LLC.</h2>
+    <Slideshow />
+    <hr class="hidden md:block" />
+    <div
+        class="flex flex-col-reverse md:flex-row md:justify-center gap-x-8 gap-y-4"
     >
-      <a
-        class="flex w-max"
-        target="_blank"
-        referrerpolicy={"no-referrer"}
-        href={GOOGLE_DIRECTION_URL}
-      >
-        Get Directions
-      </a>
-      <div class="ml-auto hidden md:inline-block">
-        <GoogleProfile/>
-      </div>
-      <iframe
-        class="font-black col-span-full h-full w-full relative hidden md:inline-block"
-        sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-popups-to-escape-sandbox allow-downloads allow-modals w-fit"
-        aria-label="Map, 16329 Co Rd V"
-        src="https://maps-api-ssl.google.com/maps?hl=en&ll=40.305269,-103.844805&output=embed&q=16329+Co+Rd+V,+Fort+Morgan,+CO+80701,+USA+(16329+Co+Rd+V)&z=16"
-        allowfullscreen=""></iframe>
-          <a
-            target="_blank"
-            class="flex-1 text-center md:text-left"
-            referrerpolicy={"no-referrer"}
-            href={GOOGLE_REVIEWS_URL}
-          >
-            Reviews
-          </a>
-          <a
-        class="ml-auto"
-            target="_blank"
-            referrerpolicy={"no-referrer"}
-            href={GOOGLE_WRITE_REVIEW}
-          >
-            Write a Review
-          </a>
-    </aside>
-  </div>
+        <article class="">
+            <indexSection.Content />
+        </article>
 
-  <hr />
-
-  <section class="space-y-2 text-center lg:text-left">
-    <h3
-      class="font-display uppercase text-2xl underline underline-offset-2 items-center"
-    >
-      benefits of regular bathing &#38; Grooming
-    </h3>
-    <div id='benefits'>
-      <img
-        class="w-auto h-auto my-auto max-h-40 self-center [grid-area:img1]"
-        src="/assets/images/sitting_dog.png"
-        loading="lazy"
-        alt=""
-      />
-
-      <article class="col-span-3 [grid-area:content]">
-        <regular.Content />
-      </article>
-
-      <img
-        class="w-auto h-auto my-auto max-h-40 self-center [grid-area:img2]"
-        src="/assets/images/sitting_cat.png"
-        loading="lazy"
-        alt=""
-      />
+        <aside
+            class="border-gray-200 my-auto flex md:grid md:grid-cols-2 md:grid-rows-[auto_1fr_auto] space-y-2 items-start justify-between border-b-2 md:border-b-0 md:border-l-2 text-blue-800 underline uppercase pl-2 flex-wrap min-w-fit"
+        >
+            <a
+                class="flex w-max"
+                target="_blank"
+                referrerpolicy={"no-referrer"}
+                href={GOOGLE_DIRECTION_URL}
+            >
+                Get Directions
+            </a>
+            <div class="ml-auto hidden md:inline-block">
+                <GoogleProfile />
+            </div>
+            <iframe
+                class="font-black col-span-full h-full w-full relative hidden md:inline-block"
+                sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-popups-to-escape-sandbox allow-downloads allow-modals w-fit"
+                aria-label="Map, 16329 Co Rd V"
+                src="https://maps-api-ssl.google.com/maps?hl=en&ll=40.305269,-103.844805&output=embed&q=16329+Co+Rd+V,+Fort+Morgan,+CO+80701,+USA+(16329+Co+Rd+V)&z=16"
+                allowfullscreen=""></iframe>
+            <a
+                target="_blank"
+                class="flex-1 text-center md:text-left"
+                referrerpolicy={"no-referrer"}
+                href={GOOGLE_REVIEWS_URL}
+            >
+                Reviews
+            </a>
+            <a
+                class="ml-auto"
+                target="_blank"
+                referrerpolicy={"no-referrer"}
+                href={GOOGLE_WRITE_REVIEW}
+            >
+                Write a Review
+            </a>
+        </aside>
     </div>
-  </section>
+
+    <hr />
+
+    <section class="space-y-2 text-center lg:text-left">
+        <h3
+            class="font-display uppercase text-2xl underline underline-offset-2 items-center"
+        >
+            benefits of regular bathing &#38; Grooming
+        </h3>
+        <div id="benefits">
+            <img
+                class="w-auto h-auto my-auto max-h-40 self-center [grid-area:img1]"
+                src="/assets/images/sitting_dog.png"
+                loading="lazy"
+                alt=""
+            />
+
+            <article class="col-span-3 [grid-area:content]">
+                <regular.Content />
+            </article>
+
+            <img
+                class="w-auto h-auto my-auto max-h-40 self-center [grid-area:img2]"
+                src="/assets/images/sitting_cat.png"
+                loading="lazy"
+                alt=""
+            />
+        </div>
+    </section>
 </Layout>
 
 <style>
-@import "tailwindcss";
-#benefits {
-  @apply grid [grid-template-areas:'img1_img2''content_content'] lg:[grid-template-areas:'img1_content_img2'] gap-4;
-  article {
-    margin-inline: auto;
-    @apply ml-4;
-  }
-}
+    @import "tailwindcss";
+    #benefits {
+        @apply grid [grid-template-areas:'img1_img2''content_content'] lg:[grid-template-areas:'img1_content_img2'] gap-4;
+        article {
+            margin-inline: auto;
+            @apply ml-4;
+        }
+    }
 </style>

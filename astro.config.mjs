@@ -9,9 +9,7 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
 	site: "https://www.fortmorgangrooming.com",
 	integrations: [
-		preact({
-			compat: true,
-		}),
+		preact(),
 		sitemap(),
 		mdx(),
 	],
