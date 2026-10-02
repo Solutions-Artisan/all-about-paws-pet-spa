@@ -1,6 +1,6 @@
 export const navItems = {
 	Home: "/",
-	Packages: "/packages",
+	Pricing: "/packages",
 	// Contact: "/contact", #TODO: Create a contact page
 	FAQ: "/faq",
 };

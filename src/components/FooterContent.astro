@@ -1,23 +1,7 @@
 ---
-import {
-	CONTACT_EMAIL,
-	GOOGLE_DIRECTION_URL,
-	PHONE,
-	PHONE_FULL,
-} from "../constants";
+import { GOOGLE_DIRECTION_URL } from "../constants";
 ---
 
-<section class="flex-wrap min-w-max">
-  <h3 class="font-bold text-lg underline">Hours</h3>
-  <div class="grid grid-cols-[auto_1fr] md:gap-y-2 gap-x-2">
-    <span class="font-bold">M - F</span>
-    <span>7:00am - 4:00pm</span>
-    <span class="font-bold">Saturday</span>
-    <span>8:00am - 2:00pm</span>
-    <span class="font-bold">Sunday</span>
-    <span>Closed</span>
-  </div>
-</section>
 <section class="flex-wrap min-w-fit md:mx-auto">
   <h3 class="font-bold text-lg underline">Location</h3>
   <span class="w-max">
@@ -35,20 +19,15 @@ import {
       Get Directions
     </a>
 </section>
+<div>
+
 <section class="flex-wrap min-w-fit md:ml-auto">
   <h3 class="font-bold text-lg underline">Contact</h3>
-  <a
-    href=`tel:+${PHONE_FULL}`
-    class="flex flex-wrap gap-x-1 "
-  >
-    <span>Call me at</span>
-    <span class="link w-max">
-      {PHONE}
-    </span>
-  </a>
-  <p>
-    <a class="link" href={"mailto:" + CONTACT_EMAIL}>
-      Email
-    </a>
-  </p>
+  Booked for 2027
 </section>
+<section class="flex-wrap min-w-max">
+  <h3 class="font-bold text-lg underline">Hours</h3>
+  <span>By appointment</span>
+</section>
+
+</div>
