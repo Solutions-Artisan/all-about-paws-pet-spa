@@ -58,11 +58,6 @@
 	.link {
 		@apply underline text-blue-600 hover:text-blue-800;
 	}
-	#main {
-		background: white;
-		margin: 2rem;
-		padding: 2rem;
-	}
 
 	h2 {
 		@apply font-heading;
