@@ -15,7 +15,7 @@ Kindness, understanding, knowledge, and experience are the keys to great groomin
 so I go out of my way to treat every animal with gentleness and respect -
 the way I treat my own pets.
 
-As I have 20 plus years in the professional grooming industry, you can rest
+As I have 30 years in the professional grooming industry, you can rest
 assured your beloved pet will be in good hands.
 
 Call to hear more about All About Paws, or just come on over to say, "Hello!"
