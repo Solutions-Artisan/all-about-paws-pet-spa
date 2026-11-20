@@ -1,6 +1,6 @@
 ---
 title: "My pet is matted, but I do not want him shaved. Why can't you brush him out?"
-author: 'Debi'
+author: "Debi"
 layout: layout.astro
 ---
 

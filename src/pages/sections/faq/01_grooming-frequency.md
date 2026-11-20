@@ -1,7 +1,7 @@
 ---
-title: 'How frequently should I have my pet groomed?'
-alt: 'how_frequently_should_i_have_my_pet_groomed'
-author: 'Debi'
+title: "How frequently should I have my pet groomed?"
+alt: "how_frequently_should_i_have_my_pet_groomed"
+author: "Debi"
 layout: layout.astro
 ---
 

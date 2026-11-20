@@ -1,6 +1,6 @@
 ---
 title: "Can I bathe my dog at home between grooming appointments? "
-author: 'Debi'
+author: "Debi"
 layout: layout.astro
 ---
 

@@ -7,10 +7,10 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://www.fortmorgangrooming.com",
-	integrations: [preact(), sitemap(), mdx()],
+  site: "https://www.fortmorgangrooming.com",
+  integrations: [preact(), sitemap(), mdx()],
 
-	vite: {
-		plugins: [tailwindcss()],
-	},
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

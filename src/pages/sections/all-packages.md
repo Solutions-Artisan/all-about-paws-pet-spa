@@ -1,7 +1,8 @@
 ---
-title: 'All Packages Include'
-author: 'Debi'
+title: "All Packages Include"
+author: "Debi"
 ---
+
 - Bath | Conditioner | Ears Cleaned | Pluck Ear Hairs*
 - Sanitation Trim*
 - Includes private area and pad hair
@@ -13,4 +14,3 @@ author: 'Debi'
 <small>
 * Certain Breeds
 </small>
-

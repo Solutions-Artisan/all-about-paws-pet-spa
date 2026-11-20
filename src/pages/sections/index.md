@@ -1,6 +1,6 @@
 ---
-title: 'All About Paws'
-author: 'Debi'
+title: "All About Paws"
+author: "Debi"
 ---
 
 All About Paws Pet Spa, LLC. is a locally owned business providing full-service

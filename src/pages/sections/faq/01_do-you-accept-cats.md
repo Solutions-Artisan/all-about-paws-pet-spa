@@ -1,7 +1,7 @@
 ---
-title: 'Do you accept cats?'
-alt: 'do_you_accept_cats'
-author: 'Debi'
+title: "Do you accept cats?"
+alt: "do_you_accept_cats"
+author: "Debi"
 layout: layout.astro
 ---
 

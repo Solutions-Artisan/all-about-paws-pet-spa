@@ -1,6 +1,6 @@
 ---
-title: 'Benefits of Regular Bathing and Grooming'
-author: 'Debi'
+title: "Benefits of Regular Bathing and Grooming"
+author: "Debi"
 ---
 
 - Healthy skin and coat. Less shedding!
@@ -10,4 +10,3 @@ author: 'Debi'
 - Your pet will look and smell great.
 - Potential health risks may be spotted before they become major complications.
 - Pet becomes accustomed to being bathed. This leads to more enjoyment from the experience!
-
